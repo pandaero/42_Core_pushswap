@@ -1,2 +1,2 @@
 # 42_Core_pushswap
-A project at 42 schools concerning sorting using two stacks.
+A project in the "second circle" at 42 schools concerning number sorting using two stacks.
