@@ -6,30 +6,57 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 21:01:53 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/11 21:14:24 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/12 20:48:43 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+#include <limits.h>
 
 //Function checks that array members contain only digits and numeric symbols.
-int	isarrnumeric(char **charr)
+int	isarrnumeric(char **charr, int charrsz)
 {
+	int	i;
+	int	j;
 
-}
-
-//Function checks that there are no duplicate arrays within the main array.
-int	isarrdup(char **charr)
-{
-	
+	i = 0;
+	while (i < charrsz)
+	{
+		if (isvalidnum(charr[i]) == 0)
+			return (0);
+		j = 0;
+		while (charr[i][j] != '\0')
+		{
+			if (isnumeric(charr[i][j]) == 0)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 //Function checks that all the array submembers represent only integers.
-int	isarrint(char **charr)
+int	isarrint(char **charr, int charrsz)
 {
-	if(array longer than 9 chars, trip)
+	int	i;
 
-	(check numbers by converting to long and checking)
+	i = 0;
+	while (i < charrsz)
+	{
+		if (ft_atol(charr[i]) > (long) INT_MAX)
+			return (0);
+		if (ft_atol(charr[i]) < (long) INT_MIN)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+/*
+//Function checks that there are no duplicate arrays within the main array.
+int	isarrdup(char **charr)
+{
 	
 }
 
@@ -38,3 +65,4 @@ int	isarrsorted(char **charr)
 {
 
 }
+*/
