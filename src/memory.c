@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 16:20:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/14 22:39:07 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/15 22:04:47 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,20 @@ void	free_charr(char **charr, int charrsz)
 
 	i = 0;
 	while (i < charrsz)
+	{
+		free(charr[i]);
+		i++;
+	}
+	free(charr);
+}
+
+//Function frees a 2D char array made from ft_split.
+void	free_split(char **charr)
+{
+	int	i;
+
+	i = 0;
+	while (charr[i] != 0)
 	{
 		free(charr[i]);
 		i++;
