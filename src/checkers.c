@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 21:01:53 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/12 20:48:43 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:13:40 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	isarrint(char **charr, int charrsz)
 	int	i;
 
 	i = 0;
+	if (isarrnumeric(charr, charrsz) == 0)
+		return (0);
 	while (i < charrsz)
 	{
 		if (ft_atol(charr[i]) > (long) INT_MAX)
@@ -54,7 +56,7 @@ int	isarrint(char **charr, int charrsz)
 }
 
 /*
-//Function checks that there are no duplicate arrays within the main array.
+//Function checks that there are no duplicate numbers within the main array.
 int	isarrdup(char **charr)
 {
 	
