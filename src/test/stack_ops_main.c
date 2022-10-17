@@ -60,3 +60,22 @@ int	main(void)
 	return (0);
 }
 //*/
+
+/* Test for swap
+int	main(void)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	push(100, stack);
+	push(50, stack);
+	push(150, stack);
+	printf("Stack:\n");
+	stack_display(stack->top);
+	swap(stack);
+	printf("Swapped:\n");
+	stack_display(stack->top);
+	free_stack(stack);
+	return (0);
+}
+//*/

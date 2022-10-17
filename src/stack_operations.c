@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:34 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/14 22:38:02 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:06:39 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,18 @@ void	pop(t_stack	*stack)
 		stack->top = node->prev;
 		free(node);
 	}
+}
+
+//Function swaps the top two elements of the stack.
+void	swap(t_stack *stack)
+{
+	int	top;
+	int	prev;
+
+	top = stack->top->value;
+	prev = stack->top->prev->value;
+	pop(stack);
+	pop(stack);
+	push(top, stack);
+	push(prev, stack);
 }
