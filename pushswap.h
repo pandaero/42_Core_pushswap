@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 11:24:42 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:35:09 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,12 @@ int		isvalidnum(char *str);
 void	push_a(t_stack *st_a, t_stack *st_b);
 //Function pushes the top element of stack a to stack b.
 void	push_b(t_stack *st_a, t_stack *st_b);
+//Function swaps the first two elements on a stack a.
+void	swap_a(t_stack *st_a);
+//Function swaps the first two elements on a stack b.
+void	swap_b(t_stack *st_b);
+//Function swaps the first two elements of each of two stacks a and b.
+void	swap_ab(t_stack *st_a, t_stack *st_b);
 
 // STACK OPERATIONS
 //Function pushes (new) data to the top of the stack.
@@ -60,12 +66,6 @@ void	push(int num, t_stack *stack);
 void	pop(t_stack	*stack);
 //Function swaps the top two elements of the stack.
 void	swap(t_stack *stack);
-//Function swaps the first two elements on a stack a.
-void	swap_a(t_stack *st_a);
-//Function swaps the first two elements on a stack b.
-void	swap_b(t_stack *st_b);
-//Function swaps the first two elements of each of two stacks a and b.
-void	swap_ab(t_stack *st_a, t_stack *st_b);
 
 // TYPE CONVERSIONS
 //Function turns a string to a long integer type.
