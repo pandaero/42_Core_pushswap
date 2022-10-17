@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 11:53:34 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:09:19 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int		isarrnumeric(char **charr);
 //Function checks that all the array submembers represent only integers.
 int		isarrint(char **charr);
 //Function checks that there are no duplicate numbers within the main array.
-int	isarrdup(char **charr);
+int		isarrdup(char **charr);
+//Function checks whether array members are ordered.
+int		isarrsorted(char **charr);
 
 // INDIVIDUAL VALIDATORS
 //Function checks whether a character is a numeric one.
