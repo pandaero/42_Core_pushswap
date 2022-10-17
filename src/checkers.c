@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 21:01:53 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 10:13:40 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:55:04 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <limits.h>
 
 //Function checks that array members contain only digits and numeric symbols.
-int	isarrnumeric(char **charr, int charrsz)
+int	isarrnumeric(char **charr)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < charrsz)
+	while (charr[i] != 0)
 	{
 		if (isvalidnum(charr[i]) == 0)
 			return (0);
@@ -37,14 +37,14 @@ int	isarrnumeric(char **charr, int charrsz)
 }
 
 //Function checks that all the array submembers represent only integers.
-int	isarrint(char **charr, int charrsz)
+int	isarrint(char **charr)
 {
 	int	i;
 
-	i = 0;
-	if (isarrnumeric(charr, charrsz) == 0)
+	if (isarrnumeric(charr) == 0)
 		return (0);
-	while (i < charrsz)
+	i = 0;
+	while (charr[i] != 0)
 	{
 		if (ft_atol(charr[i]) > (long) INT_MAX)
 			return (0);
@@ -55,13 +55,30 @@ int	isarrint(char **charr, int charrsz)
 	return (1);
 }
 
-/*
 //Function checks that there are no duplicate numbers within the main array.
 int	isarrdup(char **charr)
 {
-	
+	int	i;
+	int	j;
+
+	if (isarrnumeric(charr) == 0)
+		return (-1);
+	i = 0;
+	while (charr[i] != 0)
+	{
+		j = 0;
+		while (charr[j] != 0)
+		{
+			if (ft_atol(charr[j]) == ft_atol(charr[i]) && j != i)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
+/*
 //Function checks whether array members are ordered.
 int	isarrsorted(char **charr)
 {

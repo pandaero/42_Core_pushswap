@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 11:35:09 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:53:34 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ typedef struct s_stack
 
 // ARRAY VALIDATORS
 //Function checks that array members contain only digits and numeric symbols.
-int		isarrnumeric(char **charr, int charrsz);
+int		isarrnumeric(char **charr);
 //Function checks that all the array submembers represent only integers.
-int		isarrint(char **charr, int charrsz);
+int		isarrint(char **charr);
+//Function checks that there are no duplicate numbers within the main array.
+int	isarrdup(char **charr);
 
 // INDIVIDUAL VALIDATORS
 //Function checks whether a character is a numeric one.
