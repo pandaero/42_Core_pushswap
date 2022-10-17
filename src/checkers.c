@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 21:01:53 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 11:55:04 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:01:10 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,21 @@ int	isarrdup(char **charr)
 	return (0);
 }
 
-/*
 //Function checks whether array members are ordered.
 int	isarrsorted(char **charr)
 {
+	int	i;
 
+	if (isarrnumeric(charr) == 0)
+		return (-1);
+	i = 0;
+	while (charr[i] != 0)
+	{
+		if (charr[i + 1] == 0)
+			break ;
+		if (ft_atol(charr[i]) > ft_atol(charr[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
-*/

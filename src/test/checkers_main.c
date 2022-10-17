@@ -56,7 +56,7 @@ int	main(void)
 }
 //*/
 
-//* Test for isarrdup
+/* Test for isarrdup
 // run: cc checkers_main.c ../checkers.c ../memory.c ../numbers.c ../indiv_checkers.c ../../libft/libft.a
 int	main(void)
 {
@@ -73,6 +73,30 @@ int	main(void)
 	ft_printf("Non: %d\n", isarrdup(charr1));
 	ft_printf("Correct: %d\n", isarrdup(charr2));
 	ft_printf("Subtle double: %d\n", isarrdup(charr3));
+	free_split(charr1);
+	free_split(charr2);
+	free_split(charr3);
+	return (0);
+}
+//*/
+
+/* Test for isarrsorted
+// run: cc checkers_main.c ../checkers.c ../memory.c ../numbers.c ../indiv_checkers.c ../../libft/libft.a
+int	main(void)
+{
+	char	str1[] = "Dude Hello How Are You Goodbye";
+	char	str2[] = "+123 -432 2342 22124";
+	char	str3[] = "1 2 3 4 5 6";
+	char	**charr1;
+	char	**charr2;
+	char	**charr3;
+
+	charr1 = ft_split(str1, ' ');
+	charr2 = ft_split(str2, ' ');
+	charr3 = ft_split(str3, ' ');
+	ft_printf("Non: %d\n", isarrsorted(charr1));
+	ft_printf("Unsorted: %d\n", isarrsorted(charr2));
+	ft_printf("Sorted: %d\n", isarrsorted(charr3));
 	free_split(charr1);
 	free_split(charr2);
 	free_split(charr3);
