@@ -13,6 +13,7 @@ void	stack_display(t_stack *stack)
 		printf("Empty\n");
 		return ;
 	}
+	printf("-----Top-----\n");
 	while (node != (void *) 0)
 	{
 		printf("Value: %d\n", node->value);
