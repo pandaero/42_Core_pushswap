@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:03:13 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/12 20:04:14 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/15 21:19:25 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	isinteger(char *str)
 {
 	long	num;
 
-	num = atol(str);
+	num = ft_atol(str);
 	if (num > INT_MAX || num < INT_MIN)
 		return (0);
 	return (1);
