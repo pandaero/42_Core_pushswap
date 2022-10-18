@@ -89,7 +89,7 @@ int	main(void)
 }
 //*/
 
-//* Test for reverse_rotate
+/* Test for reverse_rotate
 // run:
 int	main(void)
 {
