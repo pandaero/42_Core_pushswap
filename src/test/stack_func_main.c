@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /* Test for fill_stack
-// run: cc stack_filling_main.c ../memory.c ../stack_filling.c test.c ../stack_operations.c ../../libft/libft.a
+// run: cc stack_func_main.c ../memory.c ../stack_filling.c test.c ../stack_operations.c ../../libft/libft.a
 int	main(void)
 {
 	char	**charr;
@@ -20,8 +20,8 @@ int	main(void)
 }
 //*/
 
-//* Test for stack_size
-// run: 
+/* Test for stack_size
+// run: cc stack_func_main.c ../stack_functions.c ../stack_operations.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack	*stack;
