@@ -68,3 +68,23 @@ int	main(void)
 	return (0);
 }
 //*/
+
+/* Test for rotate
+// run:
+int	main(void)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	push(105, stack);
+	push(210, stack);
+	push(555, stack);
+	push(333, stack);
+	stack_display(stack);
+	rotate(stack);
+	printf("Rotated:\n");
+	stack_display(stack);
+	free_stack(stack);	
+	return (0);
+}
+//*/
