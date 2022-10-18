@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:34 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 18:10:22 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:58:24 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,29 +76,11 @@ void	swap(t_stack *stack)
 //Function moves all elements of the stack up by one, top becomes bottom.
 void	rotate(t_stack *stack)
 {
-	int		*tmparr;
-	int		stacksz;
-	int		i;
-	t_node	*head;
+	int	rot;
 
-	head = stack->bottom;
-	if (head == 0 || stack->bottom == stack->top)
-		return ;
-	stacksz = stack_size(stack);
-	tmparr = (int *)malloc((stacksz) * sizeof(int));
-	i = 0;
-	while (head != 0)
-	{
-		tmparr[i] = head->value;
-		head = head->next;
-		i++;
-	}
-	stack_pop(stack);
-	push(tmparr[stacksz - 1], stack);
-	i = -1;
-	while (i++ < stacksz - 2)
-		push(tmparr[i], stack);
-	free(tmparr);
+	rot = stack->top->value;
+	pop(stack);
+	push_bottom(rot, stack);
 }
 
 //Function moves all elements of the stack down by one, bottom becomes top.
