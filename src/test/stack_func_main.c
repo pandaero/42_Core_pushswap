@@ -36,3 +36,22 @@ int	main(void)
 	return (0);
 }
 //*/
+
+/* Test for stack_pop
+// run: cc stack_func_main.c ../stack_functions.c ../stack_operations.c ../memory.c ./test.c ../../libft/libft.a
+int	main(void)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	push(5, stack);
+	push(15, stack);
+	push(25, stack);
+	stack_display(stack);
+	stack_pop(stack);
+	printf("*Stack Pop*\n");
+	stack_display(stack);
+	free_stack(stack);
+	return (0);
+}
+//*/

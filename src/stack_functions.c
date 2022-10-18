@@ -6,14 +6,14 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:35:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 13:35:42 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:24:12 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 
 //Function fills a stack with numbers from a valid character array.
-void	fill_stack(char **charr, t_stack *stack)
+void	stack_fill(char **charr, t_stack *stack)
 {
 	int	i;
 
@@ -44,4 +44,17 @@ int	stack_size(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+//Function pops a stack completely.
+void	stack_pop(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack->top != 0)
+	{
+		pop(stack);
+		i++;
+	}
 }
