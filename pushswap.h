@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 18:24:00 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 23:27:24 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,12 @@ void	swap_a(t_stack *st_a);
 void	swap_b(t_stack *st_b);
 //Function swaps the first two elements of each of two stacks a and b.
 void	swap_ab(t_stack *st_a, t_stack *st_b);
+//Function moves all elements of a stack a up by one.
+void	rotate_a(t_stack *st_a);
+//Function moves all elements of a stack b up by one.
+void	rotate_b(t_stack *st_b);
+//Function moves all elements of two stacks a and b up by one.
+void	rotate_ab(t_stack *st_a, t_stack *st_b);
 
 // STACK OPERATIONS
 //Function pushes (new) data to the top of the stack.
