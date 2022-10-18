@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 17:34:12 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:10:05 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	pop(t_stack	*stack);
 void	swap(t_stack *stack);
 //Function moves all elements of the stack up by one, top becomes bottom.
 void	rotate(t_stack *stack);
+//Function moves all elements of the stack down by one, bottom becomes top.
+void	reverse_rotate(t_stack *stack);
 
 // STACK SPECIAL OPERATIONS
 //Function pops the bottom element of the stack.

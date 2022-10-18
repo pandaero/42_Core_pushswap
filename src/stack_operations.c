@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:34 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 15:35:02 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:10:22 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,12 @@ void	rotate(t_stack *stack)
 	free(tmparr);
 }
 
-/*
 //Function moves all elements of the stack down by one, bottom becomes top.
 void	reverse_rotate(t_stack *stack)
 {
+	int	rot;
 
-}*/
+	rot = stack->bottom->value;
+	pop_bottom(stack);
+	push(rot, stack);
+}
