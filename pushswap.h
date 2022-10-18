@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 13:42:49 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:34:12 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		isarrsorted(char **charr);
 void	fill_stack(char **charr, t_stack *stack);
 //Function determines the number of elements in a stack.
 int		stack_size(t_stack *stack);
+//Function pops a stack completely.
+void	stack_pop(t_stack *stack);
 
 // INDIVIDUAL VALIDATORS
 //Function checks whether a character is a numeric one.
@@ -76,18 +78,28 @@ void	push(int num, t_stack *stack);
 void	pop(t_stack	*stack);
 //Function swaps the top two elements of the stack.
 void	swap(t_stack *stack);
+//Function moves all elements of the stack up by one, top becomes bottom.
+void	rotate(t_stack *stack);
+
+// STACK SPECIAL OPERATIONS
+//Function pops the bottom element of the stack.
+void	pop_bottom(t_stack *stack);
 
 // TYPE CONVERSIONS
 //Function turns a string to a long integer type.
 long	ft_atol(char *str);
 
 // MEMORY HANDLING
+//Function frees an int array, given its size.
+void	free_intarr(int	*intarr, int intarrsz);
 //Function frees a 2D char array, given its size.
 void	free_charr(char **charr, int charrsz);
 //Function frees a 2D char array made from ft_split.
 void	free_split(char **charr);
 //Function frees the memory allocated to a stack.
 void	free_stack(t_stack *stack);
+//Function frees the memory allocated to a stack's members.
+void	free_stack_mems(t_stack *stack);
 
 // ERROR HANDLING
 //Function displays error message on standard error.
