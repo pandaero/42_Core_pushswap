@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 12:09:19 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/18 13:42:49 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,19 @@ int		isarrdup(char **charr);
 //Function checks whether array members are ordered.
 int		isarrsorted(char **charr);
 
+// STACK FUNCTIONS
+//Function fills a stack with numbers from a valid character array.
+void	fill_stack(char **charr, t_stack *stack);
+//Function determines the number of elements in a stack.
+int		stack_size(t_stack *stack);
+
 // INDIVIDUAL VALIDATORS
 //Function checks whether a character is a numeric one.
 int		isnumeric(char ch);
 //Function checks whether a string contains a valid signed numeric declaration.
 int		isvalidnum(char *str);
 
-// ALGORITHM OPERATIONS
+// ALGORITHM OPERATIONS/INSTRUCTIONS
 //Function pushes the top element of stack b to stack a.
 void	push_a(t_stack *st_a, t_stack *st_b);
 //Function pushes the top element of stack a to stack b.
