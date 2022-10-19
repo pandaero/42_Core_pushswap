@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:34 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 18:58:24 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:21:03 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdlib.h>
 
 //Function pushes (new) data to the top of the stack.
-void	push(int num, t_stack *stack)
+void	push(t_node *node, t_stack *stack)
 {
 	t_node	*new;
 
 	new = (t_node *)malloc(sizeof(t_node));
-	new->value = num;
+	node_inherit(new, node);
 	if (stack->top == (void *) 0)
 	{
 		new->prev = (void *) 0;
@@ -62,33 +62,43 @@ void	pop(t_stack	*stack)
 //Function swaps the top two elements of the stack.
 void	swap(t_stack *stack)
 {
-	int	top;
-	int	prev;
+	t_node	*temptop;
+	t_node	*temptopprev;
 
-	top = stack->top->value;
-	prev = stack->top->prev->value;
+	if (stack->bottom == stack->top)
+		return ;
+	temptop = (t_node *)malloc(sizeof(t_node));
+	temptopprev = (t_node *)malloc(sizeof(t_node));
+	node_inherit(temptop, stack->top);
+	node_inherit(temptopprev, stack->top->prev);
 	pop(stack);
 	pop(stack);
-	push(top, stack);
-	push(prev, stack);
+	push(temptop, stack);
+	push(temptopprev, stack);
+	free(temptop);
+	free(temptopprev);
 }
 
 //Function moves all elements of the stack up by one, top becomes bottom.
 void	rotate(t_stack *stack)
 {
-	int	rot;
+	t_node	*temptop;
 
-	rot = stack->top->value;
+	temptop = (t_node *)malloc(sizeof(t_node));
+	node_inherit(temptop, stack->top);
 	pop(stack);
-	push_bottom(rot, stack);
+	push_bottom(temptop, stack);
+	free(temptop);
 }
 
 //Function moves all elements of the stack down by one, bottom becomes top.
 void	reverse_rotate(t_stack *stack)
 {
-	int	rot;
+	t_node	*tempbottom;
 
-	rot = stack->bottom->value;
+	tempbottom = (t_node *)malloc(sizeof(t_node));
+	node_inherit(tempbottom, stack->bottom);
 	pop_bottom(stack);
-	push(rot, stack);
+	push(tempbottom, stack);
+	free(tempbottom);
 }

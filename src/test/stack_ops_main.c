@@ -8,28 +8,49 @@
 int	main(void)
 {
 	t_stack *stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(5, stack);
-	push(25, stack);
-	push(125, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node_init(5, node1);
+	node_init(25, node2);
+	node_init(125, node3);
+	push(node1, stack);
+	push(node2, stack);
+	push(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
 	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
 	return (0);
 }
 //*/
 
 /* Test for pop
-// run: cc stack_ops_main.c ../stack_operations.c ../memory.c 
+// run: cc stack_ops_main.c ../stack_operations.c ../memory.c ./test.c ../stack_functions.c ../stack_special.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(5, stack);
-	push(25, stack);
-	push(125, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node_init(5, node1);
+	node_init(25, node2);
+	node_init(125, node3);
+	push(node1, stack);
+	push(node2, stack);
+	push(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
 	pop(stack);
@@ -46,65 +67,113 @@ int	main(void)
 	stack_display(stack);
 	printf("Done Popping.\n");
 	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
 	return (0);
 }
 //*/
 
 /* Test for swap
+// run: cc stack_ops_main.c ../stack_operations.c ../memory.c ./test.c ../stack_functions.c ../stack_special.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack	*stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(100, stack);
-	push(50, stack);
-	push(150, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node_init(100, node1);
+	node_init(50, node2);
+	node_init(150, node3);
+	push(node1, stack);
+	push(node2, stack);
+	push(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
 	swap(stack);
 	printf("Swapped:\n");
 	stack_display(stack);
 	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
 	return (0);
 }
 //*/
 
 /* Test for rotate
-// run:
+// run: cc stack_ops_main.c ../stack_operations.c ../memory.c ./test.c ../stack_functions.c ../stack_special.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack	*stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
+	t_node	*node4;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(105, stack);
-	push(210, stack);
-	push(555, stack);
-	push(333, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node4 = (t_node *)malloc(sizeof(t_node));
+	node_init(105, node1);
+	node_init(210, node2);
+	node_init(555, node3);
+	node_init(333, node4);
+	push(node1, stack);
+	push(node2, stack);
+	push(node3, stack);
+	push(node4, stack);
 	stack_display(stack);
 	rotate(stack);
 	printf("Rotated:\n");
 	stack_display(stack);
-	free_stack(stack);	
+	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
+	free(node4);
 	return (0);
 }
 //*/
 
 /* Test for reverse_rotate
-// run:
+// run: cc stack_ops_main.c ../stack_operations.c ../memory.c ./test.c ../stack_functions.c ../stack_special.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack	*stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
+	t_node	*node4;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(105, stack);
-	push(210, stack);
-	push(555, stack);
-	push(333, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node4 = (t_node *)malloc(sizeof(t_node));
+	node_init(105, node1);
+	node_init(210, node2);
+	node_init(555, node3);
+	node_init(333, node4);
+	push(node1, stack);
+	push(node2, stack);
+	push(node3, stack);
+	push(node4, stack);
 	stack_display(stack);
 	reverse_rotate(stack);
 	printf("Rev. Rotated:\n");
 	stack_display(stack);
-	free_stack(stack);	
+	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
+	free(node4);
 	return (0);
 }
 //*/

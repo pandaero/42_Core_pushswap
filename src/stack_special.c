@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:19:31 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 18:36:58 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:01:48 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <stdlib.h>
 
 //Function pushes a new item to the bottom of the stack.
-void	push_bottom(int num, t_stack *stack)
+void	push_bottom(t_node *node, t_stack *stack)
 {
 	t_node	*new;
 
 	new = (t_node *)malloc(sizeof(t_node));
-	new->value = num;
+	node_inherit(new, node);
 	if (stack->bottom == 0)
 	{
 		new->prev = 0;

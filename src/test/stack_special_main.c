@@ -4,32 +4,53 @@
 #include <stdlib.h>
 
 /* Test for push_bottom
-// run: cc stack_ops_main.c ../memory.c ../stack_operations.c
+// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push_bottom(5, stack);
-	push_bottom(25, stack);
-	push_bottom(125, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node_init(100, node1);
+	node_init(50, node2);
+	node_init(150, node3);
+	push_bottom(node1, stack);
+	push_bottom(node2, stack);
+	push_bottom(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
 	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
 	return (0);
 }
 //*/
 
 /* Test for pop_bottom
-// run: cc stack_special_main.c ../stack_special.c ../memory.c 
+// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
+	t_node	*node1;
+	t_node	*node2;
+	t_node	*node3;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(5, stack);
-	push(25, stack);
-	push(125, stack);
+	node1 = (t_node *)malloc(sizeof(t_node));
+	node2 = (t_node *)malloc(sizeof(t_node));
+	node3 = (t_node *)malloc(sizeof(t_node));
+	node_init(100, node1);
+	node_init(50, node2);
+	node_init(150, node3);
+	push_bottom(node1, stack);
+	push_bottom(node2, stack);
+	push_bottom(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
 	//Pop
@@ -50,6 +71,9 @@ int	main(void)
 	stack_display(stack);
 	printf("Done Popping.\n");
 	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
 	return (0);
 }
 //*/
