@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/19 00:14:49 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:16:07 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_node
 	int				pos_target;
 	int				cost_a;
 	int				cost_b;
-	int				cost_total;
 	struct s_node	*prev;
 	struct s_node	*next;
 }					t_node;
@@ -56,6 +55,10 @@ void	stack_fill(char **charr, t_stack *stack);
 int		stack_size(t_stack *stack);
 //Function pops a stack completely.
 void	stack_pop(t_stack *stack);
+//Function initialises a node with only its value.
+void	node_init(int val, t_node *node);
+//Function copies values from one node to another.
+void	node_inherit(t_node *dest, t_node *source);
 
 // INDIVIDUAL VALIDATORS
 //Function checks whether a character is a numeric one.
@@ -89,7 +92,7 @@ void	rev_rotate_ab(t_stack *st_a, t_stack *st_b);
 
 // STACK OPERATIONS
 //Function pushes (new) data to the top of the stack.
-void	push(int num, t_stack *stack);
+void	push(t_node *node, t_stack *stack);
 //Function pops (removes) the top element of the stack.
 void	pop(t_stack	*stack);
 //Function swaps the top two elements of the stack.
@@ -101,7 +104,7 @@ void	reverse_rotate(t_stack *stack);
 
 // STACK SPECIAL OPERATIONS
 //Function pushes a new item to the bottom of the stack.
-void	push_bottom(int	num, t_stack *stack);
+void	push_bottom(t_node *node, t_stack *stack);
 //Function pops the bottom element of the stack.
 void	pop_bottom(t_stack *stack);
 
