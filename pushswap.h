@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/20 23:39:52 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 00:46:12 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ int		stack_size(t_stack *stack);
 //Function pops a stack completely.
 void	stack_pop(t_stack *stack);
 
+// STACK something
+//Function finds the minimum value in a stack and returns the node's pointer.
+t_node	*stack_min(t_stack *stack);
+
 // NODE FUNCTIONS
 //Function initialises a node with only its value.
 void	node_init(int val, t_node *node);
@@ -67,6 +71,10 @@ void	node_inherit(t_node *dest, t_node *source);
 int		isnumeric(char ch);
 //Function checks whether a string contains a valid signed numeric declaration.
 int		isvalidnum(char *str);
+
+// SORTING ALGORITHM something
+//Function assigns indices to stack elements, in order.
+void	indexing(t_stack *stack);
 
 // ALGORITHM OPERATIONS/INSTRUCTIONS
 //Function pushes the top element of stack b to stack a.
