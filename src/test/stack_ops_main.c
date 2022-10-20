@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /* Test for push
-// run: cc stack_ops_main.c ../memory.c ../stack_operations.c
+// run: cc stack_ops_main.c ../stack_operations.c ../node_functions.c ../stack_special.c ../memory.c test.c
 int	main(void)
 {
 	t_stack *stack;
@@ -24,6 +24,7 @@ int	main(void)
 	push(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	free_stack(stack);
 	free(node1);
 	free(node2);
@@ -33,7 +34,7 @@ int	main(void)
 //*/
 
 /* Test for pop
-// run: cc stack_ops_main.c ../stack_operations.c ../memory.c ./test.c ../stack_functions.c ../stack_special.c ../../libft/libft.a
+// run: cc stack_ops_main.c ../stack_operations.c ../node_functions.c ../stack_special.c ../memory.c test.c
 int	main(void)
 {
 	t_stack *stack;
@@ -53,15 +54,18 @@ int	main(void)
 	push(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
+	pop(stack);
+	printf("*Pop*:\n");
+	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	pop(stack);
 	printf("*Pop*:\n");
 	stack_display(stack);
 	pop(stack);
 	printf("*Pop*:\n");
 	stack_display(stack);
-	pop(stack);
-	printf("*Pop*:\n");
-	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	pop(stack);
 	printf("*Pop Empty*:\n");
 	stack_display(stack);
