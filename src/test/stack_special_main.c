@@ -78,7 +78,7 @@ int	main(void)
 }
 //*/
 
-/* Test for pop_any
+//* Test for pop_any
 // run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
@@ -107,6 +107,18 @@ int	main(void)
 	select = stack->top->prev;
 	pop_any(select, stack);
 	printf("Pop second to top:\n");
+	stack_display(stack);
+	select = stack->top;
+	pop_any(select, stack);
+	printf("Pop top:\n");
+	stack_display(stack);
+	select = stack->bottom;
+	pop_any(select, stack);
+	printf("Pop bottom:\n");
+	stack_display(stack);
+	select = stack->bottom;
+	pop_any(select, stack);
+	printf("Pop last:\n");
 	stack_display(stack);
 	free_stack(stack);
 	free(node1);

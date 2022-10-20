@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:19:31 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/20 22:57:01 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:01:17 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,10 @@ void	pop_any(t_node *node, t_stack *stack)
 {
 	if (node == 0)
 		return ;
-	if (node == stack->bottom)
+	if (node->prev == 0)
 		stack->bottom = node->next;
+	if (node->next == 0)
+		stack->top = node->prev;
 	if (node->next != 0)
 		node->next->prev = node->prev;
 	if (node->prev != 0)
