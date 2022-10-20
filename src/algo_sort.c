@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:48:10 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 01:07:48 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 01:14:42 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	indexing(t_stack *stack)
 	t_node	*current;
 
 	ix = 1;
-	while (ix <= 3)
+	while (ix <= stack->nodecount)
 	{
 		current = stack->bottom;
 		tmpmin = INT_MAX;
