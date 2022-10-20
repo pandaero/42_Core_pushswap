@@ -6,14 +6,14 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:19:31 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/19 13:01:48 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:57:01 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 #include <stdlib.h>
 
-//Function pushes a new item to the bottom of the stack.
+//Function pushes a new item to the bottom of the DLL stack.
 void	push_bottom(t_node *node, t_stack *stack)
 {
 	t_node	*new;
@@ -35,7 +35,7 @@ void	push_bottom(t_node *node, t_stack *stack)
 	stack->bottom = new;
 }
 
-//Function pops the bottom element of the stack.
+//Function pops the bottom element of the DLL stack.
 void	pop_bottom(t_stack *stack)
 {
 	t_node	*node;
@@ -59,4 +59,19 @@ void	pop_bottom(t_stack *stack)
 		stack->bottom = node->next;
 		free(node);
 	}
+}
+
+//Function pops any node in a DLL stack.
+void	pop_any(t_node *node, t_stack *stack)
+{
+	if (node == 0)
+		return ;
+	if (node == stack->bottom)
+		stack->bottom = node->next;
+	if (node->next != 0)
+		node->next->prev = node->prev;
+	if (node->prev != 0)
+		node->prev->next = node->next;
+	free(node);
+	return ;
 }

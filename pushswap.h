@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/19 13:16:07 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/20 22:56:57 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,12 @@ void	rotate(t_stack *stack);
 void	reverse_rotate(t_stack *stack);
 
 // STACK SPECIAL OPERATIONS
-//Function pushes a new item to the bottom of the stack.
+//Function pushes a new item to the bottom of the DLL stack.
 void	push_bottom(t_node *node, t_stack *stack);
-//Function pops the bottom element of the stack.
+//Function pops the bottom element of the DLL stack.
 void	pop_bottom(t_stack *stack);
+//Function pops any node in a DLL stack.
+void	pop_any(t_node *node, t_stack *stack);
 
 // TYPE CONVERSIONS
 //Function turns a string to a long integer type.
