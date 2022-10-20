@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 /* Test for push_bottom
-// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
+// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../node_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
@@ -24,6 +24,7 @@ int	main(void)
 	push_bottom(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	free_stack(stack);
 	free(node1);
 	free(node2);
@@ -33,7 +34,7 @@ int	main(void)
 //*/
 
 /* Test for pop_bottom
-// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
+// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../node_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
@@ -53,6 +54,7 @@ int	main(void)
 	push_bottom(node3, stack);
 	printf("Stack:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	//Pop
 	pop_bottom(stack);
 	printf("*Pop bottom*:\n");
@@ -61,6 +63,7 @@ int	main(void)
 	pop_bottom(stack);
 	printf("*Pop bottom*:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	//Pop
 	pop_bottom(stack);
 	printf("*Pop bottom*:\n");
@@ -69,6 +72,7 @@ int	main(void)
 	pop_bottom(stack);
 	printf("*Pop Empty bottom*:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	printf("Done Popping.\n");
 	free_stack(stack);
 	free(node1);
@@ -79,7 +83,7 @@ int	main(void)
 //*/
 
 /* Test for pop_any
-// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
+// run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../node_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
@@ -104,6 +108,7 @@ int	main(void)
 	push_bottom(node4, stack);
 	printf("Stack:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	select = stack->top->prev;
 	pop_any(select, stack);
 	printf("Pop second to top:\n");
@@ -112,10 +117,12 @@ int	main(void)
 	pop_any(select, stack);
 	printf("Pop top:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	select = stack->bottom;
 	pop_any(select, stack);
 	printf("Pop bottom:\n");
 	stack_display(stack);
+	printf("Stack node count: %d\n", stack->nodecount);
 	select = stack->bottom;
 	pop_any(select, stack);
 	printf("Pop last:\n");

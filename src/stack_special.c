@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:19:31 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/20 23:01:17 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:48:24 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	push_bottom(t_node *node, t_stack *stack)
 		new->prev = 0;
 		new->next = stack->bottom;
 	}
+	stack->nodecount++;
 	stack->bottom = new;
 }
 
@@ -59,6 +60,7 @@ void	pop_bottom(t_stack *stack)
 		stack->bottom = node->next;
 		free(node);
 	}
+	stack->nodecount--;
 }
 
 //Function pops any node in a DLL stack.
@@ -75,5 +77,6 @@ void	pop_any(t_node *node, t_stack *stack)
 	if (node->prev != 0)
 		node->prev->next = node->next;
 	free(node);
+	stack->nodecount--;
 	return ;
 }
