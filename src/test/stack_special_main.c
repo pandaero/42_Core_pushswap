@@ -78,7 +78,7 @@ int	main(void)
 }
 //*/
 
-//* Test for pop_any
+/* Test for pop_any
 // run: cc stack_special_main.c ../stack_special.c ../stack_operations.c ../stack_functions.c ../memory.c ./test.c ../../libft/libft.a
 int	main(void)
 {
