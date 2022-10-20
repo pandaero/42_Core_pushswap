@@ -6,12 +6,21 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:35:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/19 12:54:14 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/20 23:39:48 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 #include <stdlib.h>
+
+//Funcion initialises a stack with only its id.
+void	stack_init(int id, t_stack *stack)
+{
+	stack->id = id;
+	stack->nodecount = 0;
+	stack->bottom = 0;
+	stack->top = 0;
+}
 
 //Function fills a stack with numbers from a valid character array.
 void	stack_fill(char **charr, t_stack *stack)
@@ -62,26 +71,4 @@ void	stack_pop(t_stack *stack)
 		pop(stack);
 		i++;
 	}
-}
-
-//Function initialises a node with only its value.
-void	node_init(int val, t_node *node)
-{
-	node->value = val;
-	node->index = 0;
-	node->pos = 0;
-	node->pos_target = 0;
-	node->cost_a = 0;
-	node->cost_b = 0;
-}
-
-//Function copies values from one node to another.
-void	node_inherit(t_node *dest, t_node *source)
-{
-	dest->value = source->value;
-	dest->index = source->index;
-	dest->pos = source->pos;
-	dest->pos_target = source->pos_target;
-	dest->cost_a = source->cost_a;
-	dest->cost_b = source->cost_b;
 }
