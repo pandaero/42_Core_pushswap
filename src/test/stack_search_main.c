@@ -34,7 +34,7 @@ int	main(void)
 //*/
 
 /* Test for stack_index_min
-// run:
+// run: cc stack_search_main.c ../stack_search.c ../stack_operations.c ../stack_functions.c ../stack_special.c ../algo_preparation.c ../operations_pushswap.c ../operations_reverse_rotate.c ../operations_rotate.c ../algo_execution.c ../node_functions.c ../numbers.c ../memory.c test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack *stack;
