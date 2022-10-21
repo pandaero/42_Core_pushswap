@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 00:46:12 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 02:07:56 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int		isarrdup(char **charr);
 int		isarrsorted(char **charr);
 
 // STACK FUNCTIONS
+//Funcion initialises a stack with only its id.
+t_stack	*stack_init(int id, t_stack *stack);
 //Function fills a stack with numbers from a valid character array.
 void	stack_fill(char **charr, t_stack *stack);
 //Function determines the number of elements in a stack.
@@ -62,7 +64,7 @@ t_node	*stack_min(t_stack *stack);
 
 // NODE FUNCTIONS
 //Function initialises a node with only its value.
-void	node_init(int val, t_node *node);
+t_node	*node_init(int val, t_node *node);
 //Function copies values from one node to another.
 void	node_inherit(t_node *dest, t_node *source);
 
@@ -72,9 +74,15 @@ int		isnumeric(char ch);
 //Function checks whether a string contains a valid signed numeric declaration.
 int		isvalidnum(char *str);
 
-// SORTING ALGORITHM something
+// SORTING ALGORITHM UTILITIES
 //Function assigns indices to stack elements, in order.
 void	indexing(t_stack *stack);
+
+// SORTING ALGORITHM
+//Function pushes all elements to stack b except 3.
+void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b);
+//Function sorts 3 elements. (Very defined sorting case). Intended for stack a.
+void	sort_three_a(t_stack *stack_a);
 
 // ALGORITHM OPERATIONS/INSTRUCTIONS
 //Function pushes the top element of stack b to stack a.

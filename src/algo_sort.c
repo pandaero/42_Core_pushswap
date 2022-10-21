@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:48:10 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 01:14:42 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 02:20:11 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,26 @@ void	indexing(t_stack *stack)
 	}
 }
 
-/*
 //Function pushes all elements to stack b except 3.
-void	push_to_b(t_stack stack_a,t_stack stack_b)
+void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b)
 {
-	while (stack_size(stack_a) != 3)
-		push_b(stack_b);
+	while (stack_a->nodecount != 3)
+		push_b(stack_a, stack_b);
 }
 
-//Function sorts 3 elements. (Very defined sorting case).
-void	sort_three(t_stack stack)
+//Function sorts 3 elements. (Very defined sorting case). Intended for stack a.
+void	sort_three_a(t_stack *stack_a)
 {
-	t_node	temp;
-	int		*tmp;
-	int		i;
+	t_node *node;
 
-	temp = stack->bottom;
-	i = 0;
-	while (i < stack_size(stack))
-	{
-		tmp[i] = temp->value;
-		temp = temp->next;
-		i++;
-	}
+	node = stack_a->bottom->next;
+	if (node->next->index > node->index \
+		&& node->next->index > node->prev->index)
+		rotate_a(stack_a);
+	else if (node->index > node->next->index \
+			&& node->index > node->prev->index)
+		rev_rotate_a(stack_a);
+	node = stack_a->bottom->next;
+	if (node->next->index > node->index)
+		swap_a(stack_a);
 }
-*/
