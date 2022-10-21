@@ -6,30 +6,51 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:28:36 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/17 11:22:54 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 02:01:07 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
+#include <stdlib.h>
 
 //Function pushes the top element of stack b to stack a.
 void	push_a(t_stack *st_a, t_stack *st_b)
 {
+	t_node	*node;
+
 	if (st_b->top == 0)
 		return ;
-	push(st_b->top->value, st_a);
+	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+	{
+		ft_printf("Malloc error!\n");
+		exit(0);
+	}
+	node_inherit(node, st_b->top);
+	push(node, st_a);
 	pop(st_b);
 	ft_printf("pa\n");
+	free(node);
 }
 
 //Function pushes the top element of stack a to stack b.
 void	push_b(t_stack *st_a, t_stack *st_b)
 {
+	t_node	*node;
+
 	if (st_a->top == 0)
-		return ;
-	push(st_a->top->value, st_b);
+		return ;	
+	node = (t_node *)malloc(sizeof(t_node));
+	if (!node)
+	{
+		ft_printf("Malloc error!\n");
+		exit(0);
+	}
+	node_inherit(node, st_a->top);
+	push(node, st_b);
 	pop(st_a);
 	ft_printf("pb\n");
+	free(node);
 }
 
 //Function swaps the first two elements on a stack a.
