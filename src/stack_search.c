@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:05:09 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 20:42:43 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 20:44:25 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,6 @@ int	stack_issorted(t_stack *stacka)
 	{
 		if (node->index - 1 != node->pos)
 			return (0);
-		if (node->prev == 0)
-			break ;
 		node = node->prev;
 	}
 	return (1);
