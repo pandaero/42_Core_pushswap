@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 02:07:56 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 06:50:24 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,15 @@ int		stack_size(t_stack *stack);
 //Function pops a stack completely.
 void	stack_pop(t_stack *stack);
 
-// STACK something
+// STACK SEARCHING
 //Function finds the minimum value in a stack and returns the node's pointer.
-t_node	*stack_min(t_stack *stack);
+t_node	*stack_value_min(t_stack *stack);
+//Function finds the minimum value in a stack and returns the node's pointer.
+t_node	*stack_index_min(t_stack *stack);
+//Function determines the minimum index present in the stack.
+int		index_min(t_stack *stack);
+//Function determines the maximum index present in the stack.
+int		index_max(t_stack *stack);
 
 // NODE FUNCTIONS
 //Function initialises a node with only its value.
@@ -77,12 +83,20 @@ int		isvalidnum(char *str);
 // SORTING ALGORITHM UTILITIES
 //Function assigns indices to stack elements, in order.
 void	indexing(t_stack *stack);
+//Function assigns the position of each node.
+void	positioning(t_stack *stack);
+//Function calculates the current target position in stack b.
+void	targeting(t_stack *stack_a, t_stack *stack_b);
 
 // SORTING ALGORITHM
 //Function pushes all elements to stack b except 3.
 void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b);
 //Function sorts 3 elements. (Very defined sorting case). Intended for stack a.
 void	sort_three_a(t_stack *stack_a);
+
+// ALGORITHM EXECUTION
+//Function performs stack operations until costs are exhausted. Cheapest node.
+void	perform_operations(t_stack *stack_a, t_stack *stack_b, t_node *node);
 
 // ALGORITHM OPERATIONS/INSTRUCTIONS
 //Function pushes the top element of stack b to stack a.
@@ -128,9 +142,12 @@ void	pop_bottom(t_stack *stack);
 //Function pops any node in a DLL stack.
 void	pop_any(t_node *node, t_stack *stack);
 
-// TYPE CONVERSIONS
+// NUMBER FUNCTIONS
 //Function turns a string to a long integer type.
 long	ft_atol(char *str);
+//Function returns the absolute value of an integer.
+int		absolute(int num);
+
 
 // MEMORY HANDLING
 //Function frees a 2D char array, given its size.
