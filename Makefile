@@ -6,7 +6,7 @@
 #    By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 23:15:27 by pandalaf          #+#    #+#              #
-#    Updated: 2022/10/19 00:34:35 by pandalaf         ###   ########.fr        #
+#    Updated: 2022/10/21 13:47:21 by pandalaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ LIBFT_PATH := libft/
 LIBFT_FULL = $(addprefix $(LIBFT_PATH), $(LIBFT))
 # Sources identification
 SRC_DIR := src/
-SRC_FILES := pushswap.c checkers.c error.c memory.c numbers.c indiv_checkers.c \
-				input.c stack_functions.c stack_operations.c stack_special.c \
-				operations_pushswap.c operations_reverse_rotate.c \
-				operations_rotate.c
+SRC_FILES := pushswap.c input.c checkers.c error.c memory.c numbers.c \
+				indiv_checkers.c stack_functions.c node_functions.c \
+				stack_operations.c stack_special.c operations_pushswap.c \
+				operations_rotate.c operations_reverse_rotate.c
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 BSRC_DIR := src/bonus/
 BSRC_FILES := checker.c
