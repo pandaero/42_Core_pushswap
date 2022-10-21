@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:35:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 02:05:07 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:49:12 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,17 @@ void	stack_fill(char **charr, t_stack *stack)
 	int		i;
 	t_node	*temp;
 
-	temp = (t_node *)malloc(sizeof(t_node));
 	i = 0;
 	while (charr[i] != 0)
 		i++;
 	i--;
 	while (i >= 0)
 	{
-		temp = (ft_atoi(charr[i]), temp);
+		temp = node_init(ft_atoi(charr[i]), temp);
 		push(temp, stack);
+		free(temp);
 		i--;
 	}
-	free(temp);
 }
 
 //Function determines the number of elements in a stack.
