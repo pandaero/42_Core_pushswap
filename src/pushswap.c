@@ -6,13 +6,15 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:03 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/19 00:49:37 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:46:16 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 #include <stdarg.h>
 #include <stdlib.h>
+
+#include <stdio.h>
 
 //Function checks that arguments of a string array are valid.
 int	argcheck(char **charr)
@@ -28,21 +30,40 @@ int	argcheck(char **charr)
 	return (1);
 }
 
+//Function prints a whole stack with its nodes data.
+void	stack_display_full(t_stack *stack)
+{
+	t_node	*node;
+
+	node = stack->top;
+	if (node == 0)
+	{
+		ft_printf("Empty\n");
+		return ;
+	}
+	ft_printf("------------------------Top------------------------\n");
+	ft_printf("Val. | Ind. | Pos. | Pos. Tgt. | Cost A | Cost B|\n");
+	while (node != 0)
+	{
+		printf("%5d  %5d  %5d     %5d     %5d    %5d\n", node->value, \
+				node->index, node->pos, node->pos_target, node->cost_a, \
+				node->cost_b);
+		node = node->prev;
+	}
+}
+
 //Function sorts a list of numbers using two stacks.
 static int	pushswap(char **charr)
 {
 	t_stack	*stacka;
 	t_stack	*stackb;
 
-	stacka = (t_stack *)malloc(sizeof(t_stack));
-	stackb = (t_stack *)malloc(sizeof(t_stack));
-	if (!stacka || !stackb)
-	{
-		ft_printf("Memory can't be allocated.\n");
-		return (-1);
-	}
-	ft_printf("Got to pushswap\n");
+	stacka = 0;
+	stackb = 0;
+	stacka = stack_init(0, stacka);
+	stackb = stack_init(1, stackb);
 	stack_fill(charr, stacka);
+	stack_display_full(stacka);
 	free_stack(stacka);
 	free_stack(stackb);
 	return (0);
