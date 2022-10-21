@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 06:50:24 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 06:53:28 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ typedef struct s_stack
 //Function converts a character array to one compatible with ft_split output.
 char	**splitise(char **argv, int argc);
 
+// INDIVIDUAL VALIDATORS
+//Function checks whether a character is a numeric one.
+int		isnumeric(char ch);
+//Function checks whether a string contains a valid signed numeric declaration.
+int		isvalidnum(char *str);
+
 // ARRAY VALIDATORS
 //Function checks that array members contain only digits and numeric symbols.
 int		isarrnumeric(char **charr);
@@ -47,6 +53,12 @@ int		isarrint(char **charr);
 int		isarrdup(char **charr);
 //Function checks whether array members are ordered.
 int		isarrsorted(char **charr);
+
+// NODE FUNCTIONS
+//Function initialises a node with only its value.
+t_node	*node_init(int val, t_node *node);
+//Function copies values from one node to another.
+void	node_inherit(t_node *dest, t_node *source);
 
 // STACK FUNCTIONS
 //Funcion initialises a stack with only its id.
@@ -67,18 +79,6 @@ t_node	*stack_index_min(t_stack *stack);
 int		index_min(t_stack *stack);
 //Function determines the maximum index present in the stack.
 int		index_max(t_stack *stack);
-
-// NODE FUNCTIONS
-//Function initialises a node with only its value.
-t_node	*node_init(int val, t_node *node);
-//Function copies values from one node to another.
-void	node_inherit(t_node *dest, t_node *source);
-
-// INDIVIDUAL VALIDATORS
-//Function checks whether a character is a numeric one.
-int		isnumeric(char ch);
-//Function checks whether a string contains a valid signed numeric declaration.
-int		isvalidnum(char *str);
 
 // SORTING ALGORITHM UTILITIES
 //Function assigns indices to stack elements, in order.
@@ -147,7 +147,6 @@ void	pop_any(t_node *node, t_stack *stack);
 long	ft_atol(char *str);
 //Function returns the absolute value of an integer.
 int		absolute(int num);
-
 
 // MEMORY HANDLING
 //Function frees a 2D char array, given its size.
