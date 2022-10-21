@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:35:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/20 23:39:48 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 02:05:07 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 #include <stdlib.h>
 
 //Funcion initialises a stack with only its id.
-void	stack_init(int id, t_stack *stack)
+t_stack	*stack_init(int id, t_stack *stack)
 {
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+	{
+		ft_printf("Malloc error!\n");
+		exit(0);
+	}
 	stack->id = id;
 	stack->nodecount = 0;
 	stack->bottom = 0;
 	stack->top = 0;
+	return (stack);
 }
 
 //Function fills a stack with numbers from a valid character array.
