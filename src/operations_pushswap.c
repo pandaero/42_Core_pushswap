@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:28:36 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 02:01:07 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 03:41:38 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	push_b(t_stack *st_a, t_stack *st_b)
 	t_node	*node;
 
 	if (st_a->top == 0)
-		return ;	
+		return ;
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
 	{

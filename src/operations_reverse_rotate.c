@@ -6,12 +6,11 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:53:55 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/18 23:37:58 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 03:41:53 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
 
 //Function moves all elements of a stack a down by one.
 void	rev_rotate_a(t_stack *st_a)

@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:05:09 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 03:38:49 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 03:41:16 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	index_max(t_stack *stack)
 		if (current->index > tmpmax)
 			tmpmax = current->index;
 		if (current->prev == 0)
-			break;
+			break ;
 		current = current->prev;
 	}
 	return (tmpmax);

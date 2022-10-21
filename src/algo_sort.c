@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:48:10 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 03:39:07 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 03:42:30 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	targeting(t_stack *stack_a, t_stack *stack_b)
 }
 
 //Function pushes all elements to stack b except 3.
-void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b)
+void	initial_push_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	while (stack_a->nodecount != 3)
 		push_b(stack_a, stack_b);
@@ -100,7 +100,7 @@ void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b)
 //Function sorts 3 elements. (Very defined sorting case). Intended for stack a.
 void	sort_three_a(t_stack *stack_a)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = stack_a->bottom->next;
 	if (node->next->index > node->index \
@@ -113,4 +113,3 @@ void	sort_three_a(t_stack *stack_a)
 	if (node->next->index > node->index)
 		swap_a(stack_a);
 }
-
