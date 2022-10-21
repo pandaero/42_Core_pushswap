@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:04:36 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/12 20:41:47 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 04:24:05 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,12 @@ long	ft_atol(char *str)
 			return (-1);
 	}
 	return ((long) sign * sum);
+}
+
+//Function returns the absolute value of an integer.
+int	absolute(int num)
+{
+	if (num < 0)
+		return (-1 * num);
+	return (num);
 }
