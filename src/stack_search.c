@@ -6,44 +6,21 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:05:09 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 20:44:25 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/23 12:47:32 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
 #include <limits.h>
 
-//Function finds the minimum value in a stack and returns the node's pointer.
-t_node	*stack_value_min(t_stack *stack)
-{
-	int		tmpmin;
-	t_node	*current;
-
-	current = stack->bottom;
-	tmpmin = INT_MAX;
-	while (current->next != 0)
-	{
-		if (current->value < tmpmin)
-			tmpmin = current->value;
-		current = current->next;
-	}
-	while (current->prev != 0)
-	{
-		if (current->value == tmpmin)
-			return (current);
-		current = current->prev;
-	}
-	return (current);
-}
-
-//Function finds the minimum value in a stack and returns the node's pointer.
+//Function finds the minimum index element in a stack and returns the pointer.
 t_node	*stack_index_min(t_stack *stack)
 {
 	int		tmpmin;
 	t_node	*current;
 
-	current = stack->bottom;
 	tmpmin = INT_MAX;
+	current = stack->bottom;
 	while (current != 0)
 	{
 		if (current->index < tmpmin)
@@ -55,6 +32,31 @@ t_node	*stack_index_min(t_stack *stack)
 	while (current != 0)
 	{
 		if (current->index == tmpmin)
+		{
+			return (current);
+		}
+		current = current->prev;
+	}
+	return (0);
+}
+
+//Function finds the minimum cost node in a stack and returns the pointer to it.
+t_node	*stack_cost_min(t_stack *stack)
+{
+	int		tmpmin;
+	t_node	*current;
+
+	current = stack->bottom;
+	tmpmin = INT_MAX;
+	while (current->next != 0)
+	{
+		if ((absolute(current->cost_a) + absolute(current->cost_b)) < tmpmin)
+			tmpmin = (absolute(current->cost_a) + absolute(current->cost_b));
+		current = current->next;
+	}
+	while (current != 0)
+	{
+		if ((absolute(current->cost_a) + absolute(current->cost_b)) == tmpmin)
 			return (current);
 		current = current->prev;
 	}
