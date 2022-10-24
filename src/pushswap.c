@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:03 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 13:46:16 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/21 19:38:45 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,22 @@ void	stack_display_full(t_stack *stack)
 	}
 }
 
+//Function runs through the algorithm until stack a is sorted.
+static int algorithm(t_stack *stacka, t_stack *stackb)
+{
+	while (stack_size(stackb) != 0)
+	{
+		positioning(stacka);
+		positioning(stackb);
+		targeting(stacka, stackb);
+		costing(stacka, stackb);
+		optimisation_execution(stacka, stackb);
+	}
+	//while (stack a not sorted)
+	//	(ra if blah, rra if blah)
+	return (0);
+}
+
 //Function sorts a list of numbers using two stacks.
 static int	pushswap(char **charr)
 {
@@ -63,7 +79,20 @@ static int	pushswap(char **charr)
 	stacka = stack_init(0, stacka);
 	stackb = stack_init(1, stackb);
 	stack_fill(charr, stacka);
-	stack_display_full(stacka);
+	indexing(stacka);
+	if (stack_size(stacka) == 2)
+	{
+		swap_a(stacka);
+		return (0);
+	}
+	else if (stack_size(stacka) == 3)
+	{
+		sort_three_a(stacka);
+		return (0);
+	}
+	initial_push_to_b(stacka, stackb);
+	sort_three_a(stacka);
+	algorithm(stacka, stackb);
 	free_stack(stacka);
 	free_stack(stackb);
 	return (0);
