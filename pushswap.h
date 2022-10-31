@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 06:53:28 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 12:53:12 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,31 +72,43 @@ void	stack_pop(t_stack *stack);
 
 // STACK SEARCHING
 //Function finds the minimum value in a stack and returns the node's pointer.
-t_node	*stack_value_min(t_stack *stack);
+//t_node	*stack_value_min(t_stack *stack);
 //Function finds the minimum value in a stack and returns the node's pointer.
 t_node	*stack_index_min(t_stack *stack);
+//Function finds the minimum cost node in a stack and returns the pointer to it.
+t_node	*stack_cost_min(t_stack *stack);
 //Function determines the minimum index present in the stack.
 int		index_min(t_stack *stack);
 //Function determines the maximum index present in the stack.
 int		index_max(t_stack *stack);
+//Function determines whether the stack is sorted.
+int		stack_issorted(t_stack *stacka);
 
-// SORTING ALGORITHM UTILITIES
+// SORTING ALGORITHM PREPARATION
 //Function assigns indices to stack elements, in order.
 void	indexing(t_stack *stack);
 //Function assigns the position of each node.
 void	positioning(t_stack *stack);
-//Function calculates the current target position in stack b.
+//Function calculates the current target position for stack b elements.
+//void	targeting(t_stack *stack_a, t_node *currentb);
+//Function calculates the current target position for stack b elements.
 void	targeting(t_stack *stack_a, t_stack *stack_b);
+//Function works out the costs of moving each element to its intended location.
+void	costing(t_stack *stack_a, t_stack *stack_b);
 
-// SORTING ALGORITHM
+// SORTING ALGORITHM STEPS
 //Function pushes all elements to stack b except 3.
 void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b);
 //Function sorts 3 elements. (Very defined sorting case). Intended for stack a.
 void	sort_three_a(t_stack *stack_a);
+//Function rotates stack A moving it closer to full order (stack b empty).
+void	rotation_a(t_stack *stacka);
 
 // ALGORITHM EXECUTION
+//Function works out cheapest node and performs the optimised operations.
+void	optimisation_execution(t_stack *stack_a, t_stack *stack_b);
 //Function performs stack operations until costs are exhausted. Cheapest node.
-void	perform_operations(t_stack *stack_a, t_stack *stack_b, t_node *node);
+void	perform_operations(t_stack *stack_a, t_stack *stack_b);
 
 // ALGORITHM OPERATIONS/INSTRUCTIONS
 //Function pushes the top element of stack b to stack a.
