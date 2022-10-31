@@ -6,12 +6,11 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:03 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 21:26:47 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 21:27:18 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-#include <stdlib.h>
 
 //Function checks that arguments of a string array are valid.
 int	argcheck(char **charr)
