@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 11:48:10 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 05:56:54 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:20:03 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,30 @@ void	sort_three_a(t_stack *stack_a)
 	node = stack_a->bottom->next;
 	if (node->next->index > node->index)
 		swap_a(stack_a);
+}
+
+//Function rotates stack A until it is in order (stack b empty).
+void	rotation_a(t_stack *stacka)
+{
+	int	stack_sz;
+	int	pos_min;
+
+	stack_sz = stack_size(stacka);
+	pos_min = stack_index_min(stacka)->pos;
+	if (pos_min > stack_sz / 2)
+	{
+		while (pos_min < stack_sz)
+		{
+			rev_rotate_a(stacka);
+			pos_min++;
+		}
+	}
+	else
+	{
+		while (pos_min > 0)
+		{
+			rotate_a(stacka);
+			pos_min--;
+		}
+	}
 }
