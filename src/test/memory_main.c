@@ -1,5 +1,5 @@
 // Tests for the functions in memory.c
-#include "../../pushswap.h"
+#include "test.h"
 #include <stdlib.h>
 
 /* Test for free_charr
@@ -29,14 +29,29 @@ int	main(void)
 //*/
 
 /* Test for free_stack
-// run: cc memory_main.c ../memory.c ../stack_operations.c ../../libft/libft.a
+// run: cc memory_main.c ../memory.c ../stack_operations.c ../stack_special.c ../stack_functions.c ../node_functions.c test.c ../../libft/libft.a
 int	main(void)
 {
 	t_stack	*stack;
+	t_node *node1;
+	t_node *node2;
+	t_node *node3;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	push(5, stack);
-	push(45, stack);
+	stack = stack_init(0, stack);
+	node1 = node_init(10, node1);
+	node2 = node_init(20, node2);
+	node3 = node_init(30, node3);
+	push(node1, stack);
+	push_bottom(node2, stack);
+	stack_display_full(stack);
+	pop_bottom(stack);
+	pop(stack);
+	stack_display_full(stack);
+	push_bottom(node3, stack);
+	stack_display_full(stack);
 	free_stack(stack);
+	free(node1);
+	free(node2);
+	free(node3);
 }
 //*/
