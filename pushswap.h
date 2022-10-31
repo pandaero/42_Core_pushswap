@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 12:53:12 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:51:21 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ void	stack_pop(t_stack *stack);
 
 // STACK SEARCHING
 //Function finds the minimum value in a stack and returns the node's pointer.
-//t_node	*stack_value_min(t_stack *stack);
-//Function finds the minimum value in a stack and returns the node's pointer.
 t_node	*stack_index_min(t_stack *stack);
 //Function finds the minimum cost node in a stack and returns the pointer to it.
 t_node	*stack_cost_min(t_stack *stack);
@@ -89,8 +87,6 @@ int		stack_issorted(t_stack *stacka);
 void	indexing(t_stack *stack);
 //Function assigns the position of each node.
 void	positioning(t_stack *stack);
-//Function calculates the current target position for stack b elements.
-//void	targeting(t_stack *stack_a, t_node *currentb);
 //Function calculates the current target position for stack b elements.
 void	targeting(t_stack *stack_a, t_stack *stack_b);
 //Function works out the costs of moving each element to its intended location.
