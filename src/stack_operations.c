@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:20:34 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 14:43:47 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 20:10:23 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	pop(t_stack	*stack)
 	{
 		return ;
 	}
-	else if (node->next == 0 && node->prev == 0)
+	else if ((node->next == 0 && node->prev == 0) || \
+				stack->top == stack->bottom)
 	{
-		node = 0;
 		stack->top = 0;
 		stack->bottom = 0;
 		free(node);
