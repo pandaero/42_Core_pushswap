@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:35:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/21 13:49:12 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:01:46 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,6 @@ void	stack_fill(char **charr, t_stack *stack)
 	}
 }
 
-//Function determines the number of elements in a stack.
-int	stack_size(t_stack *stack)
-{
-	int		i;
-	t_node	*current;
-
-	current = stack->bottom;
-	if (current == 0)
-		return (0);
-	i = 1;
-	while (current->next != 0)
-	{
-		current = current->next;
-		i++;
-	}
-	return (i);
-}
-
 //Function pops a stack completely.
 void	stack_pop(t_stack *stack)
 {
@@ -77,4 +59,37 @@ void	stack_pop(t_stack *stack)
 		pop(stack);
 		i++;
 	}
+}
+
+//Function determines the number of elements in a stack.
+int	stack_size(t_stack *stack)
+{
+	int		i;
+	t_node	*current;
+
+	current = stack->bottom;
+	if (current == 0)
+		return (0);
+	i = 1;
+	while (current != 0)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
+}
+
+//Function determines whether the stack is sorted.
+int	stack_issorted(t_stack *stacka)
+{
+	t_node	*node;
+
+	node = stacka->top;
+	while (node != 0)
+	{
+		if (node->index - 1 != node->pos)
+			return (0);
+		node = node->prev;
+	}
+	return (1);
 }
