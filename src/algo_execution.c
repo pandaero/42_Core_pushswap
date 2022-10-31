@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 04:05:16 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 12:33:29 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:39:23 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	perform_operations(t_stack *stack_a, t_stack *stack_b)
 	*cost_b_cp = node->cost_b;
 	if (*cost_a_cp < 0 && *cost_b_cp < 0)
 		opt_rev_rotate_ab(stack_a, stack_b, cost_a_cp, cost_b_cp);
-	else if (cost_a_cp > 0 && cost_b_cp > 0)
+	else if (*cost_a_cp > 0 && *cost_b_cp > 0)
 		opt_rotate_ab(stack_a, stack_b, cost_a_cp, cost_b_cp);
 	opt_rotate_a(stack_a, cost_a_cp);
 	opt_rotate_b(stack_b, cost_b_cp);
