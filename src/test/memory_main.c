@@ -36,11 +36,15 @@ int	main(void)
 	t_node *node1;
 	t_node *node2;
 	t_node *node3;
+	t_node *node4;
+	t_node *node5;
 
 	stack = stack_init(0, stack);
 	node1 = node_init(10, node1);
 	node2 = node_init(20, node2);
 	node3 = node_init(30, node3);
+	node4 = node_init(40, node4);
+	node5 = node_init(50, node5);
 	push(node1, stack);
 	push_bottom(node2, stack);
 	stack_display_full(stack);
@@ -48,10 +52,14 @@ int	main(void)
 	pop(stack);
 	stack_display_full(stack);
 	push_bottom(node3, stack);
+	push(node4, stack);
+	push(node5, stack);
 	stack_display_full(stack);
 	free_stack(stack);
 	free(node1);
 	free(node2);
 	free(node3);
+	free(node4);
+	free(node5);
 }
 //*/
