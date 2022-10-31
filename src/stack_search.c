@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:05:09 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/23 12:47:32 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:30:07 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,20 @@ t_node	*stack_cost_min(t_stack *stack)
 
 	current = stack->bottom;
 	tmpmin = INT_MAX;
-	while (current->next != 0)
+	while (current != 0)
 	{
 		if ((absolute(current->cost_a) + absolute(current->cost_b)) < tmpmin)
 			tmpmin = (absolute(current->cost_a) + absolute(current->cost_b));
+		if (current->next == 0)
+			break ;
 		current = current->next;
 	}
 	while (current != 0)
 	{
 		if ((absolute(current->cost_a) + absolute(current->cost_b)) == tmpmin)
 			return (current);
+		if (current->prev == 0)
+			break ;
 		current = current->prev;
 	}
 	return (current);
@@ -99,19 +103,4 @@ int	index_max(t_stack *stack)
 		current = current->prev;
 	}
 	return (tmpmax);
-}
-
-//Function determines whether the stack is sorted.
-int	stack_issorted(t_stack *stacka)
-{
-	t_node	*node;
-
-	node = stacka->top;
-	while (node != 0)
-	{
-		if (node->index - 1 != node->pos)
-			return (0);
-		node = node->prev;
-	}
-	return (1);
 }
