@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:35:46 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 13:01:46 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 13:07:44 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	stack_size(t_stack *stack)
 	if (current == 0)
 		return (0);
 	i = 1;
-	while (current != 0)
+	while (current->next != 0)
 	{
 		current = current->next;
 		i++;
