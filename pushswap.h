@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 14:51:21 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 15:00:42 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	costing(t_stack *stack_a, t_stack *stack_b);
 
 // SORTING ALGORITHM STEPS
 //Function pushes all elements to stack b except 3.
-void	initial_push_to_b(t_stack *stack_a,t_stack *stack_b);
+void	initial_push_to_b(t_stack *stack_a, t_stack *stack_b);
 //Function sorts 3 elements. (Very defined sorting case). Intended for stack a.
 void	sort_three_a(t_stack *stack_a);
 //Function rotates stack A moving it closer to full order (stack b empty).
