@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:05:09 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 13:30:07 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:02:28 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*stack_index_min(t_stack *stack)
 
 	tmpmin = INT_MAX;
 	current = stack->bottom;
-	while (current != 0)
+	while (current->next != 0)
 	{
 		if (current->index < tmpmin)
 			tmpmin = current->index;
