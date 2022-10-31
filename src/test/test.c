@@ -45,12 +45,12 @@ void	stack_display_full(t_stack *stack)
 		return ;
 	}
 	printf("------------------------Top------------------------\n");
-	printf("Val. | Ind. | Pos. | Pos. Tgt. | Cost A | Cost B|\n");
+	printf("Val. | Ind. | Pos. | Pos. Tgt. | Cost A | Cost B| next | prev\n");
 	while (node != 0)
 	{
-		printf("%5d  %5d  %5d     %5d     %5d    %5d\n", node->value, \
+		printf("%5d  %5d  %5d     %5d     %5d    %5d  %5p  %5p\n", node->value, \
 				node->index, node->pos, node->pos_target, node->cost_a, \
-				node->cost_b);
+				node->cost_b, node->next, node->prev);
 		node = node->prev;
 	}
 }
