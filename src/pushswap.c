@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:03 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/01 11:07:31 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/01 13:13:31 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ static int	algorithm(t_stack *stacka, t_stack *stackb)
 		//stack_display_full(stacka);
 		//stack_display_full(stackb);
 		costing(stacka, stackb);
-		//stack_display_full(stacka);
-		//stack_display_full(stackb);
+		stack_display_full(stacka);
+		stack_display_full(stackb);
 		perform_operations(stacka, stackb);
-		//stack_display_full(stacka);
-		//stack_display_full(stackb);
+		stack_display_full(stacka);
+		stack_display_full(stackb);
 	}
 	positioning(stacka);
 	rotation_a(stacka);

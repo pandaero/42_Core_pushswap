@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 05:53:52 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/01 11:40:08 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/01 13:06:56 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ void	targeting(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*currenta;
 	t_node	*currentb;
-	t_node	*max_index;
 
-	max_index = stack_index_max(stack_a);
 	currentb = stack_b->bottom;
 	while (currentb != 0)
 	{
-		if (currentb->index > max_index->index)
-			currentb->pos_target = max_index->pos + 1;
+		if (currentb->index > stack_index_max(stack_a)->index)
+			currentb->pos_target = stack_index_max(stack_a)->pos + 1;
+		else if (currentb->index < stack_index_min(stack_a)->index)
+			currentb->pos_target = stack_index_min(stack_a)->pos;
 		else
 		{
 			currenta = stack_a->bottom;
@@ -81,6 +81,10 @@ void	targeting(t_stack *stack_a, t_stack *stack_b)
 				if (currentb->index - 1 == currenta->index)
 					currentb->pos_target = currenta->pos + 1;
 				if (currentb->index + 1 == currenta->index)
+					currentb->pos_target = currenta->pos;
+				if (currenta->next == 0)
+					break ;
+				if (currentb->index < currenta->index && currentb->index > currenta->next->index)
 					currentb->pos_target = currenta->pos;
 				currenta = currenta->next;
 			}
