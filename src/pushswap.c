@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:03 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 21:27:18 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:07:31 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,55 @@ int	argcheck(char **charr)
 	return (1);
 }
 
+#include <stdio.h>
+//Function prints a whole stack with its nodes data.
+void	stack_display_full(t_stack *stack)
+{
+	t_node	*node;
+
+	node = stack->top;
+	if (node == 0)
+	{
+		printf("Empty\n");
+		return ;
+	}
+	printf("------------------------Top------------------------\n");
+	printf("Val. | Ind. | Pos. | Pos. Tgt. | Cost A | Cost B| next | prev\n");
+	while (node != 0)
+	{
+		printf("%5d  %5d  %5d     %5d     %5d    %5d  %5p  %5p\n", node->value, \
+				node->index, node->pos, node->pos_target, node->cost_a, \
+				node->cost_b, node->next, node->prev);
+		node = node->prev;
+	}
+}
+
 //Function runs through the algorithm until stack a is sorted.
 static int	algorithm(t_stack *stacka, t_stack *stackb)
 {
 	while (stack_size(stackb) != 0)
 	{
+		
 		positioning(stacka);
 		positioning(stackb);
+		//stack_display_full(stacka);
+		//stack_display_full(stackb);
 		targeting(stacka, stackb);
+		//stack_display_full(stacka);
+		//stack_display_full(stackb);
 		costing(stacka, stackb);
+		//stack_display_full(stacka);
+		//stack_display_full(stackb);
 		perform_operations(stacka, stackb);
+		//stack_display_full(stacka);
+		//stack_display_full(stackb);
 	}
 	positioning(stacka);
 	rotation_a(stacka);
 	return (0);
 }
+
+
 
 //Function sorts a list of numbers using two stacks.
 static int	pushswap(char **charr)
@@ -64,6 +98,7 @@ static int	pushswap(char **charr)
 		sort_three_a(stacka);
 		algorithm(stacka, stackb);
 	}
+	//stack_display_full(stacka);
 	free_stack(stacka);
 	free_stack(stackb);
 	return (0);

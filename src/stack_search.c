@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 00:05:09 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 14:02:28 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:02:40 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*stack_index_min(t_stack *stack)
 
 	tmpmin = INT_MAX;
 	current = stack->bottom;
-	while (current->next != 0)
+	while (current != 0)
 	{
 		if (current->index < tmpmin)
 			tmpmin = current->index;
@@ -32,6 +32,33 @@ t_node	*stack_index_min(t_stack *stack)
 	while (current != 0)
 	{
 		if (current->index == tmpmin)
+		{
+			return (current);
+		}
+		current = current->prev;
+	}
+	return (0);
+}
+
+//Function finds the maximum index element in a stack and returns the pointer.
+t_node	*stack_index_max(t_stack *stack)
+{
+	int		tmpmax;
+	t_node	*current;
+
+	tmpmax = INT_MIN;
+	current = stack->bottom;
+	while (current != 0)
+	{
+		if (current->index > tmpmax)
+			tmpmax = current->index;
+		if (current->next == 0)
+			break ;
+		current = current->next;
+	}
+	while (current != 0)
+	{
+		if (current->index == tmpmax)
 		{
 			return (current);
 		}

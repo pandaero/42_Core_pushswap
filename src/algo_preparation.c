@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 05:53:52 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 13:29:06 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/01 11:03:45 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ void	targeting(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*currenta;
 	t_node	*currentb;
-	t_node	*min_index;
+	t_node	*max_index;
 	int		maxindexa;
 
 	maxindexa = index_max(stack_a);
-	min_index = stack_index_min(stack_a);
+	max_index = stack_index_max(stack_a);
 	currentb = stack_b->bottom;
 	while (currentb != 0)
 	{
 		if (currentb->index > maxindexa)
-			currentb->pos_target = min_index->pos;
+			currentb->pos_target = max_index->pos + 1;
 		else
 		{
 			currenta = stack_a->bottom;
