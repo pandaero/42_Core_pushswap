@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/01 14:06:22 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:50:53 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int		isnumeric(char ch);
 int		isvalidnum(char *str);
 
 // ARRAY VALIDATORS
+//Function checks that arguments of a string array are valid.
+int		argcheck(char **charr);
 //Function checks that array members contain only digits and numeric symbols.
 int		isarrnumeric(char **charr);
 //Function checks that all the array submembers represent only integers.
