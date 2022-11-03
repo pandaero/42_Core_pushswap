@@ -6,25 +6,11 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:26:03 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/03 12:28:45 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:32:55 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../pushswap.h"
-
-//Function checks that arguments of a string array are valid.
-int	argcheck(char **charr)
-{
-	if (isarrnumeric(charr) == 0)
-		return (display_error());
-	if (isarrint(charr) == 0)
-		return (display_error());
-	if (isarrdup(charr) == 1)
-		return (display_error());
-	if (isarrsorted(charr) == 1)
-		return (display_error());
-	return (1);
-}
 
 //Function runs through the algorithm until stack a is sorted.
 static int	algorithm(t_stack *stacka, t_stack *stackb)

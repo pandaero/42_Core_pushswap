@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 00:00:05 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/19 00:30:47 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:33:26 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,18 @@ char	**splitise(char **argv, int argc)
 	}
 	out[i] = 0;
 	return (out);
+}
+
+//Function checks that arguments of a string array are valid.
+int	argcheck(char **charr)
+{
+	if (isarrnumeric(charr) == 0)
+		return (display_error());
+	if (isarrint(charr) == 0)
+		return (display_error());
+	if (isarrdup(charr) == 1)
+		return (display_error());
+	if (isarrsorted(charr) == 1)
+		return (display_error());
+	return (1);
 }
