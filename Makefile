@@ -6,7 +6,7 @@
 #    By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 23:15:27 by pandalaf          #+#    #+#              #
-#    Updated: 2022/10/31 13:57:02 by pandalaf         ###   ########.fr        #
+#    Updated: 2022/11/03 21:22:17 by pandalaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,36 +29,39 @@ SRC_FILES := pushswap.c input.c checkers.c error.c memory.c numbers.c \
 				operations_rotate.c operations_reverse_rotate.c stack_search.c \
 				algo_preparation.c algo_execution.c algo_sort.c 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
+# Bonus sources identification
 BSRC_DIR := src/bonus/
-BSRC_FILES := checker.c
+BSRC_FILES := checker.c operations_checker_pushswap.c \
+				operations_checker_rotate.c operations_checker_reverse_rotate.c
 BSRCS := $(addprefix $(BSRC_DIR), $(BSRC_FILES))
-# Object identification (not necessary)
-#OBJ_DIR := obj/
-#OBJS := $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
-#BOBJS := $(addprefix $(OBJ_DIR), $(BSRC_FILES:.c=.o))
 
+# Make desired targets
 all: $(NAME)
 
+# Make target executable
 $(NAME): $(SRCS) $(LIBFT_FULL)
 	$(CC) $(COPTIONS) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT_FULL)
 
-bonus: $(BSRCS) $(LIBFT_FULL)
-	$(CC) $(COPTIONS) $(CFLAGS) -o $(BONUS_NAME) $(BSRCS) $(SRCS) $(LIBFT_FULL)
+# Make bonus executable
+bonus: $(BSRCS) $(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
+	$(CC) $(COPTIONS) $(CFLAGS) -o $(BONUS_NAME) $(BSRCS) \
+	$(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
 
+# Make Libft archive
 $(LIBFT): $(LIBFT_PATH)
 	make -C $(LIBFT_PATH) bonus
 
-$(addprefix $(OBJ_DIR), %.o): %.c | $(OBJ_DIR)
-	$(CC) $(COPTIONS) $(CFLAGS) $^ -o $@
-
+# Clean intermediate files
 clean:
 	make -C $(LIBFT_PATH) clean
 
+# Clean all non-source files
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(BONUS_NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 	make -C $(LIBFT_PATH) fclean
 
+# Clean everything and make again
 re: fclean all
 
+# Make sure these aren't treated as filenames
 .PHONY: all bonus clean fclean re
