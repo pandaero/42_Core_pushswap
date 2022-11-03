@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 00:00:05 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/03 22:21:52 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/03 22:37:37 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ int	argcheck(char **charr)
 	if (isarrdup(charr) == 1)
 		return (display_error());
 	if (isarrsorted(charr) == 1)
-	{
-		free_split(charr);
-		exit(0);
-	}
+		return (0);
 	return (1);
 }
