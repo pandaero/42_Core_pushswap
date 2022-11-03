@@ -6,7 +6,7 @@
 #    By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 23:15:27 by pandalaf          #+#    #+#              #
-#    Updated: 2022/11/03 21:22:17 by pandalaf         ###   ########.fr        #
+#    Updated: 2022/11/03 22:43:17 by pandalaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BONUS_NAME := checker
 # Compiler options
 CC := cc
 CFLAGS := -Wall -Werror -Wextra
-COPTIONS := -g
+COPTIONS :=
 # Libft location
 LIBFT := libft.a
 LIBFT_PATH := libft/
@@ -33,7 +33,7 @@ SRCS = $(addprefix $(SRC_DIR), $(SRC_FILES))
 BSRC_DIR := src/bonus/
 BSRC_FILES := checker.c operations_checker_pushswap.c \
 				operations_checker_rotate.c operations_checker_reverse_rotate.c
-BSRCS := $(addprefix $(BSRC_DIR), $(BSRC_FILES))
+BSRCS = $(addprefix $(BSRC_DIR), $(BSRC_FILES))
 
 # Make desired targets
 all: $(NAME)
@@ -43,7 +43,10 @@ $(NAME): $(SRCS) $(LIBFT_FULL)
 	$(CC) $(COPTIONS) $(CFLAGS) -o $(NAME) $(SRCS) $(LIBFT_FULL)
 
 # Make bonus executable
-bonus: $(BSRCS) $(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
+bonus: $(BONUS_NAME)
+
+# Make checker executable (bonus)
+$(BONUS_NAME): $(BSRCS) $(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
 	$(CC) $(COPTIONS) $(CFLAGS) -o $(BONUS_NAME) $(BSRCS) \
 	$(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
 
