@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:03:13 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/15 21:19:25 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:24:40 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	isvalidnum(char *str)
 	if (str[0] == '+' || str[0] == '-')
 	{
 		i = 1;
+		if (str[i] == '\0')
+			return (0);
 		while (str[i] != '\0')
 		{
 			if (ft_isdigit(str[i]) == 0)
