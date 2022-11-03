@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 10:20:23 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/10/31 15:00:42 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/01 14:06:22 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	stack_pop(t_stack *stack);
 // STACK SEARCHING
 //Function finds the minimum value in a stack and returns the node's pointer.
 t_node	*stack_index_min(t_stack *stack);
+//Function finds the maximum index element in a stack and returns the pointer.
+t_node	*stack_index_max(t_stack *stack);
 //Function finds the minimum cost node in a stack and returns the pointer to it.
 t_node	*stack_cost_min(t_stack *stack);
 //Function determines the minimum index present in the stack.
