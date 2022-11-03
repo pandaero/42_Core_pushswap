@@ -6,7 +6,7 @@
 #    By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/30 23:15:27 by pandalaf          #+#    #+#              #
-#    Updated: 2022/11/03 22:43:17 by pandalaf         ###   ########.fr        #
+#    Updated: 2022/11/03 23:04:00 by pandalaf         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ $(BONUS_NAME): $(BSRCS) $(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
 	$(filter-out src/pushswap.c, $(SRCS)) $(LIBFT_FULL)
 
 # Make Libft archive
-$(LIBFT): $(LIBFT_PATH)
+$(LIBFT_FULL): $(LIBFT_PATH)
 	make -C $(LIBFT_PATH) bonus
 
 # Clean intermediate files
