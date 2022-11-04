@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 21:21:25 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/03 16:55:44 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/04 21:40:20 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,29 @@ static int	read_op(char *str)
 {
 	if (str == 0)
 		return (0);
-	if (str[0] == 'p' && str[1] == 'a')
+	if (str[0] == 'p' && str[1] == 'a' && str[2] == '\n')
 		return (1);
-	if (str[0] == 'p' && str[1] == 'b')
+	if (str[0] == 'p' && str[1] == 'b' && str[2] == '\n')
 		return (2);
-	if (str[0] == 's' && str[1] == 'a')
+	if (str[0] == 's' && str[1] == 'a' && str[2] == '\n')
 		return (3);
-	if (str[0] == 's' && str[1] == 'b')
+	if (str[0] == 's' && str[1] == 'b' && str[2] == '\n')
 		return (4);
-	if (str[0] == 's' && str[1] == 's')
+	if (str[0] == 's' && str[1] == 's' && str[2] == '\n')
 		return (5);
-	if (str[0] == 'r' && str[1] == 'a')
+	if (str[0] == 'r' && str[1] == 'a' && str[2] == '\n')
 		return (6);
-	if (str[0] == 'r' && str[1] == 'b')
+	if (str[0] == 'r' && str[1] == 'b' && str[2] == '\n')
 		return (7);
-	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a')
-		return (9);
-	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b')
-		return (10);
-	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r')
-		return (11);
-	if (str[0] == 'r' && str[1] == 'r')
+	if (str[0] == 'r' && str[1] == 'r' && str[2] == '\n')
 		return (8);
+	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'a' && str[3] == '\n')
+		return (9);
+	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'b' && str[3] == '\n')
+		return (10);
+	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r' && str[3] == '\n')
+		return (11);
+	free(str);
 	return (-1);
 }
 
@@ -59,7 +60,7 @@ void	operate2(char *str, t_stack *stacka, t_stack *stackb)
 }
 
 //Function performs the operation on the stacks described by string. Part 1.
-static void	operate1(char *str, t_stack *stacka, t_stack *stackb)
+static void	operate1(char *str, t_stack *stacka, t_stack *stackb, char **charr)
 {
 	if (str == 0)
 		return ;
@@ -78,6 +79,10 @@ static void	operate1(char *str, t_stack *stacka, t_stack *stackb)
 	operate2(str, stacka, stackb);
 	if (read_op(str) == -1)
 	{
+		//free(str);
+		free_split(charr);
+		free_stack(stacka);
+		free_stack(stackb);
 		display_error();
 		exit(0);
 	}
@@ -99,7 +104,7 @@ static void	checker(char **charr)
 	while (operation != 0)
 	{
 		operation = get_next_line(0);
-		operate1(operation, stacka, stackb);
+		operate1(operation, stacka, stackb, charr);
 		free(operation);
 	}
 	if (stack_issorted(stacka) == 1 && stackb->nodecount == 0)
@@ -124,6 +129,7 @@ int	main(int argc, char **argv)
 	if (argcheck(charr) == 0)
 	{
 		free_split(charr);
+		ft_printf("OK\n");
 		return (0);
 	}
 	checker(charr);
