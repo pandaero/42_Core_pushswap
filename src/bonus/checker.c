@@ -6,7 +6,7 @@
 /*   By: pandalaf <pandalaf@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 21:21:25 by pandalaf          #+#    #+#             */
-/*   Updated: 2022/11/04 21:40:20 by pandalaf         ###   ########.fr       */
+/*   Updated: 2022/11/06 12:26:05 by pandalaf         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static int	read_op(char *str)
 		return (10);
 	if (str[0] == 'r' && str[1] == 'r' && str[2] == 'r' && str[3] == '\n')
 		return (11);
-	free(str);
 	return (-1);
 }
 
@@ -79,7 +78,7 @@ static void	operate1(char *str, t_stack *stacka, t_stack *stackb, char **charr)
 	operate2(str, stacka, stackb);
 	if (read_op(str) == -1)
 	{
-		//free(str);
+		free(str);
 		free_split(charr);
 		free_stack(stacka);
 		free_stack(stackb);
